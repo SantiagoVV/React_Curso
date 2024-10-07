@@ -1,10 +1,17 @@
-import { StrictMode } from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+const createButton = ({text}) => {
+  return(
+    <button> {text} </button>
+  )
+}
+
+const root = createRoot(document.getElementById('root'))
+root.render(
+  <React.Fragment>
+    {createButton({ text: 'Button 1'})}
+    {createButton({ text: 'Button 1'})}
+  </React.Fragment>
+  
 )
