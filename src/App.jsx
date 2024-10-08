@@ -1,16 +1,17 @@
+import './App.css'
 export function App () {
     return (
-        <article>
-            <header>
-                <img alt="avatar midudev" src="https://unavatar.io/kikobeats"/>
-            <div>
+        <article className='tw-followCard'>
+            <header className='tw-followCard-header'>
+                <img className='tw-followCard-avatar' alt="avatar midudev" src="https://unavatar.io/kikobeats"/>
+            <div className='tw-followCard-info'>
                 <strong>Nombre</strong>
-                <span>@Nombre</span>
+                <span className='tw-followCard-infoUsername'>@Nombre</span>
             </div>
             </header>
 
             <aside>
-                <button>
+                <button className='tw-followCard-button'>
                     Seguir
                 </button>
             </aside>
