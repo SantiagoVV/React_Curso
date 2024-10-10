@@ -1,4 +1,4 @@
-export function FollowCard ({formatUserName ,userName, name, isFollowing}) {
+export function FollowCard ({children,formatUserName ,userName, name, isFollowing}) {
     const imageSrc = `https://unavatar.io/${userName}`
     console.log(isFollowing)
     console.log(formatUserName)
@@ -11,7 +11,7 @@ export function FollowCard ({formatUserName ,userName, name, isFollowing}) {
                     alt="avatar midudev"
                     src= {imageSrc} />  {/* src = {'https://unavatar.io/${userName}'} */}
             <div className='tw-followCard-info'>
-                <strong>{name}</strong>
+                <strong>{children}</strong>
                 <span className='tw-followCard-infoUsername'>{formatUserName(userName)}</span>
             </div>
             </header>
