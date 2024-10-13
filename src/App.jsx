@@ -3,14 +3,13 @@ import { FollowCard } from './followCard.jsx'
 
 export function App () {
 const formatUserName = (userName) => `@${userName}`
-const kiks2 = { formatUserName, isFollowing: false, userName : "kikobeats"}   
+const kiks2 = { formatUserName, userName : "kikobeats"}   
 
     return (
         <section className = "App">
             <FollowCard 
-                formatUserName={formatUserName}
-                isFollowing = {true} 
-                userName="kikobeats" >  {/* name= "Kiks "/> */}
+                formatUserName={formatUserName}  
+                userName="kikobeats" >  {/* isFollowing = {true} name= "Kiks "/>  (Prop isFollowing) */}
                 <h3>Kiks</h3>
             </FollowCard>
             
