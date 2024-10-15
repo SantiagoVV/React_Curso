@@ -1,39 +1,39 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-export function FollowCard ({children,formatUserName ,userName = 'unknown', name}) {
-    const [isFollowing, setIsFollowing] = useState(false)
+export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
-    
-    const text = isFollowing ? 'Siguiendo' : 'Seguir'
-    const buttonClassName = isFollowing
-        ? 'tw-followCard-button is-following'
-        : 'tw-followCard-button'
+  console.log('[TwitterFollowCard] render with userName: ', userName)
 
-    const imageSrc = `https://unavatar.io/${userName}`
-    console.log(isFollowing)
-    console.log(formatUserName)
+  const text = isFollowing ? 'Siguiendo' : 'Seguir'
+  const buttonClassName = isFollowing
+    ? 'tw-followCard-button is-following'
+    : 'tw-followCard-button'
 
-    const handleClick = () =>    {
-        setIsFollowing(!isFollowing)
-    }
-    return (
+  const handleClick = () => {
+    setIsFollowing(!isFollowing)
+  }
+
+  return (
     <article className='tw-followCard'>
-            <header className='tw-followCard-header'>
-                <img 
-                    className='tw-followCard-avatar' 
-                    alt="avatar midudev"
-                    src= {imageSrc} />  {/* src = {'https://unavatar.io/${userName}'} */}
-            <div className='tw-followCard-info'>
-                <strong>{children}</strong>
-                <span className='tw-followCard-infoUsername'>{formatUserName(userName)}</span>
-            </div>
-            </header>
+      <header className='tw-followCard-header'>
+        <img
+          className='tw-followCard-avatar'
+          alt='El avatar de midudev'
+          src={`https://unavatar.io/${userName}`}
+        />
+        <div className='tw-followCard-info'>
+          <strong>{children}</strong>
+          <span className='tw-followCard-infoUserName'>@{userName}</span>
+        </div>
+      </header>
 
-            <aside>
-                <button className={buttonClassName} onClick={handleClick}>
-                    {text}
-                </button>
-            </aside>
-        </article>
-    )
+      <aside>
+        <button className={buttonClassName} onClick={handleClick}>
+          <span className='tw-followCard-text'>{text}</span>
+          <span className='tw-followCard-stopFollow'>Dejar de seguir</span>
+        </button>
+      </aside>
+    </article>
+  )
 }
